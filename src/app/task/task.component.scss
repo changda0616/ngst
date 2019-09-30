@@ -1,0 +1,109 @@
+$color-primary: #2cc5d2; //caribbean teal (buttons)
+$color-secondary: #5db9ff; //cerulean blue (menu new list)
+$color-tertiary: #d2edf4; //muted teal (join/signin bg)
+$color-ancillary: #1c3f53; //deep navy (nav heading, menu icon)
+$color-complementary: #778b91; //muted navy (add item placeholder)
+
+// Alert
+$color-negative: #ff4400; //error, alert
+$color-note: #f6fccf;
+
+// Greyscale
+$color-empty: white;
+$color-raw: #f8f8f8;
+$color-raw-alt: #f2f2f2;
+$color-rare: #eee;
+$color-medium-rare: #ccc;
+$color-medium: #aaa;
+$color-medium-well: #666;
+$color-well: #555;
+$color-full: #333;
+
+.list-item {
+  // Layout of list-item children
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 3rem;
+  width: 100%;
+  background: $color-empty;
+  transition: all ease-out 150ms;
+  padding: 0 10px;
+
+  .title {
+    flex: 1;
+    margin-left: 20px;
+  }
+
+
+  input[type="checkbox"] {
+    transform: scale(1.5)
+  }
+
+  // Style of list-item children
+  input[type="text"] {
+    background: transparent;
+    width: 100%;
+
+    &:focus {
+      cursor: text;
+    }
+  }
+
+  .actions {
+    transition: all 200ms ease-in;
+    padding-right: 20px;
+
+    a {
+      display: inline-block;
+      vertical-align: top;
+      text-align: center;
+
+      color: $color-rare;
+      &:hover {
+        color: $color-primary;
+      }
+      &:active {
+        color: $color-well;
+      }
+    }
+
+    [class^="icon-"] {
+      line-height: 3rem;
+      text-align: center;
+    }
+  }
+
+  //PINNED TASKS
+  &.TASK_PINNED .icon-star {
+    color: $color-primary;
+  }
+
+  &.TASK_ARCHIVED input[type="text"] {
+    color: $color-medium;
+  }
+
+  &:hover {
+    background-color: $color-tertiary;
+    .checkbox {
+      cursor: pointer;
+    }
+  }
+
+  // Border between list items
+  & + .list-item {
+    border-top: 1px solid #f0f9fb;
+  }
+
+  // Checked
+  &.checked {
+    input[type="text"] {
+      color: $color-medium-rare;
+      text-decoration: line-through;
+    }
+
+    .delete-item {
+      display: inline-block;
+    }
+  }
+}

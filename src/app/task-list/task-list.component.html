@@ -1,0 +1,19 @@
+<div class="list-items">
+    <app-task
+      *ngFor="let task of tasksInOrder"
+      [task]="task"
+      (archiveTask)="archiveTask.emit($event)"
+      (pinTask)="pinTask.emit($event)"
+    >
+    </app-task>
+
+    <div *ngIf="tasksInOrder.length === 0 && !loading" class="wrapper-message">
+      <span class="icon-check"></span>
+      <div class="title-message">You have no tasks</div>
+      <div class="subtitle-message">Sit back and relax</div>
+    </div>
+
+    <div *ngIf="loading">
+      <span>Loading</span>
+    </div>
+  </div>
