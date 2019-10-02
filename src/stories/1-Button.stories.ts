@@ -2,50 +2,35 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 import { Button } from '@storybook/angular/demo';
+import { storiesOf } from '@storybook/angular';
 
-export default {
-  title: 'Button',
-};
-
-export const text = () => ({
+const stories = storiesOf('Button', module);
+stories.add('text', () => ({
   component: Button,
   props: {
     text: 'Hello Button',
   },
-});
+}))
 
-export const emoji = () => ({
+.add('emoji', () => ({
   component: Button,
   props: {
     text: '😀 😎 👍 💯',
   },
-});
+}), { notes: 'My notes on a button with emojis'})
 
-emoji.story = {
-  parameters: { notes: 'My notes on a button with emojis' },
-};
-
-export const withSomeEmojiAndAction = () => ({
+.add('with some emoji and action', () => ({
   component: Button,
   props: {
     text: '😀 😎 👍 💯',
     onClick: action('This was clicked OMG'),
-  },
-});
+  }
+}), { notes: 'My notes on a button with emojis' })
 
-withSomeEmojiAndAction.story = {
-  name: 'with some emoji and action',
-  parameters: { notes: 'My notes on a button with emojis' },
-};
-
-export const buttonWithLinkToAnotherStory = () => ({
+.add('Button with link to another story', () => ({
   component: Button,
   props: {
     text: 'Go to Welcome Story',
     onClick: linkTo('Welcome'),
-  },
-});
-
-buttonWithLinkToAnotherStory.story = {
-  name: 'button with link to another story',
-};
+  }
+}));
