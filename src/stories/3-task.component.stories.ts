@@ -15,7 +15,6 @@ export const actions = {
 };
 
 storiesOf('Task', module)
-  // 讓我們可以在測試情境中添加材料
   .addDecorator(
     moduleMetadata({
       declarations: [TaskComponent],
